@@ -11,6 +11,17 @@
           <element id="module-output" name="adapp" />
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.servlet:servlet-api:2.5" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/adapp/exploded/adapp-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
