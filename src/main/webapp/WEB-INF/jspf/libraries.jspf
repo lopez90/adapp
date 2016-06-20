@@ -1,0 +1,5 @@
+<!-- Semantic-UI CSS & JS -->
+<spring:url value="/webjars/Semantic-UI/2.1.8/semantic.min.css" var="SemanticCSS" />
+<spring:url value="/webjars/Semantic-UI/2.1.8/semantic.min.js" var="SemanticJS" />
+
+
