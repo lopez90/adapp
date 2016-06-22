@@ -1,5 +1,8 @@
 package com.adapp.web.config;
 
+import com.adapp.dao.UserDAO;
+import com.adapp.dto.User;
+import com.adapp.service.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -65,5 +68,21 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
     }
+
+    @Bean
+    public UserServiceImpl userService(){
+        return userService();
+    }
+
+    @Bean
+    public UserDAO userDAO(){
+        return userDAO();
+    }
+
+    @Bean
+    public User user(){
+        return user();
+    }
+
 
 }
