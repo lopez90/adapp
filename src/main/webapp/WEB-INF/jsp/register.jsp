@@ -5,36 +5,35 @@
   Time: 18:02
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="org.springframework.web.servlet.support.RequestContextUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file ="/WEB-INF/jspf/libraries.jspf"%>
+
 
 <html>
 <head>
     <title>Adapp register</title>
     <link href="${SemanticCSS}" rel="stylesheet" />
-    <link href="${SemanticJS}" />
+    <script src="${SemanticJS}"/>
 </head>
 <body>
-<div class="three column row">
-    <div class="column">
-        lewa
+<form class="ui form">
+    <div class="field">
+        <label>First Name</label>
+        <input name="first-name" placeholder="First Name" type="text">
     </div>
-    <div class="column">
-        <form class="ui form">
-            <div class="field">
-                <label>User name</label>
-                <input name="user-name" placeholder="User Name" type="text">
-            </div>
-            <div class="field">
-                <label>Password</label>
-                <input name="password" placeholder="Password" type="text">
-            </div>
-                <button class="ui green button" type="submit">Register</button>
-        </form>
+    <div class="field">
+        <label>Last Name</label>
+        <input name="last-name" placeholder="Last Name" type="text">
     </div>
-    <div class="column">
-        prawa
+    <div class="field">
+        <div class="ui checkbox">
+            <input class="hidden" tabindex="0" type="checkbox">
+            <label>I agree to the Terms and Conditions</label>
+        </div>
     </div>
-</div>
+    <button class="ui button" type="submit">Submit</button>
+</form>
 </body>
 </html>
