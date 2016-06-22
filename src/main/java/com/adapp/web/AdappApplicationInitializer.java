@@ -1,6 +1,8 @@
 package com.adapp.web;
 
 import com.adapp.web.config.WebConfiguration;
+import com.adapp.web.config.persistance.PersistenceConfiguration;
+import com.adapp.web.config.security.AdappSecurityConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -11,7 +13,7 @@ public class AdappApplicationInitializer extends AbstractAnnotationConfigDispatc
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[0];
+        return new Class<?>[]{PersistenceConfiguration.class,AdappSecurityConfiguration.class};
     }
 
     @Override

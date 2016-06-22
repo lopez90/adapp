@@ -13,7 +13,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String Hello(){
-        return "index";
+        return "register";
     }
 
 

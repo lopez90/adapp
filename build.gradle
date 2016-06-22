@@ -15,5 +15,17 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.6.RELEASE'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile group: 'org.webjars', name: 'Semantic-UI', version: '2.1.8'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.2.6.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.0.Final'
+    compile group: 'javassist', name: 'javassist', version: '3.12.1.GA'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.2'
+    compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.0.36'
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.1.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-ldap', version: '4.1.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.1.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.1.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '4.1.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-acl', version: '4.1.0.RELEASE'
 
 }
