@@ -15,7 +15,8 @@ public class AdappSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
        http
                .authorizeRequests()
-                    .and()
+                .anyRequest().permitAll()
+                        .and()
                .formLogin()
                     .permitAll()
                     .and()

@@ -10,12 +10,14 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ include file="/WEB-INF/jspf/libraries.jspf"%>
 
 <html>
 <head>
     <title>Adapp register</title>
+
     <link href="${SemanticCSS}" rel="stylesheet" />
-    <script src="${SemanticJS}"/>
+    <script src="${SemanticJS}"></script>
 </head>
 <body>
 <form class="ui form">
