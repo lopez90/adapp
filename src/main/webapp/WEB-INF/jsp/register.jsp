@@ -6,11 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="${SemanticCSS}" rel="stylesheet" />
-<link href="${SemanticJS}" rel="stylesheet" />
+<%@ include file ="/WEB-INF/jspf/libraries.jspf"%>
+
 <html>
 <head>
     <title>Adapp register</title>
+    <link href="${SemanticCSS}" rel="stylesheet" />
+    <link href="${SemanticJS}" />
 </head>
 <body>
 <div class="three column row">

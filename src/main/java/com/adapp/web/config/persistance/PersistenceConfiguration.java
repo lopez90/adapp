@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource({"classpath:resource/persistance-mysql.propeties"})
+@PropertySource({"classpath:persistance-mysql.properties"})
 @ComponentScan("com.adapp.web")
 
 public class PersistenceConfiguration {
