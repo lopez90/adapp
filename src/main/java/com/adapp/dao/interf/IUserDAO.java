@@ -7,5 +7,5 @@ import com.adapp.dto.User;
  */
 public interface IUserDAO {
 
-     User register(String aUsername, String aPassword);
+     User register(String username, String password);
 }

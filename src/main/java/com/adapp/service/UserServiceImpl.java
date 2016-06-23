@@ -1,6 +1,7 @@
 package com.adapp.service;
 
-import com.adapp.dao.UserDAO;
+
+import com.adapp.dao.interf.IUserDAO;
 import com.adapp.service.interf.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserServiceImpl implements IUserService {
 
     @Autowired
-    UserDAO userDAO;
+    IUserDAO userDAO;
 
     @Override
     public void registerService(String username, String password) {

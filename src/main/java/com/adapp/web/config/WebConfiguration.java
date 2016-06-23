@@ -1,8 +1,10 @@
 package com.adapp.web.config;
 
+
 import com.adapp.dao.UserDAO;
-import com.adapp.dto.User;
+import com.adapp.dao.interf.IUserDAO;
 import com.adapp.service.UserServiceImpl;
+import com.adapp.service.interf.IUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -70,19 +72,13 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public UserServiceImpl userService(){
-        return userService();
+    public IUserService userService(){
+        return new UserServiceImpl();
     }
 
     @Bean
-    public UserDAO userDAO(){
-        return userDAO();
+    public IUserDAO userDAO(){
+        return new UserDAO();
     }
-
-    @Bean
-    public User user(){
-        return user();
-    }
-
 
 }

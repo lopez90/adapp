@@ -5,7 +5,7 @@
   Time: 18:02
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="org.springframework.web.servlet.support.RequestContextUtils" %>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -34,12 +34,39 @@
                 <label>Password</label>
                 <input name="password" placeholder="Password" type="text">
             </div>
-            <button class="ui center aligned button" type="submit">Submit</button>
+            <button class="ui button" type="submit">Submit</button>
         </form>
     </div>
     <div class="four wide column">
-
     </div>
 </div>
+<script>
+    $('.ui.form').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            url: '<c:url value="/"/>',
+            type: "post",
+            data: formToJSON(),
+            dataType : "json",
+            contentType: 'application/json; charset=utf-8',
+            async: false,
+            success : function(data){
+                if(data.message == "success") {
+                    location.replace("<c:url value="/"/>");
+                }
+            },
+            error : function(xhr, status){
+                console.log(status);
+            }
+        })
+    })
+
+    function formToJSON() {
+        return JSON.stringify({
+            "username": $('.ui.form').form('get value', 'username'),
+            "password": $('.ui.form').form('get value', 'password')
+        })
+    }
+</script>
 </body>
 </html>
