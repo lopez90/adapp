@@ -1,18 +1,18 @@
 package com.adapp.dao.abstr;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.adapp.dao.interf.IOperations;
+import com.google.common.base.Preconditions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.google.common.base.Preconditions;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Dom on 23.06.2016.
  */
+@SuppressWarnings("unchecked")
 public abstract class AbstractHibernateDAO<T extends Serializable> implements IOperations<T> {
     private Class<T> clazz;
 

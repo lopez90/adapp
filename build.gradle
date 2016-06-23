@@ -15,9 +15,16 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.6.RELEASE'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile group: 'org.webjars', name: 'Semantic-UI', version: '2.1.8'
+    compile 'org.webjars:jquery:2.1.4'
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.6.3'
+
     compile group: 'org.springframework', name: 'spring-orm', version: '4.2.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-context', version: '4.2.6.RELEASE'
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.0.Final'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.2.4.Final'
     compile group: 'javassist', name: 'javassist', version: '3.12.1.GA'
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.2'
     compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.0.36'

@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class AdappSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
        http
+               .csrf().disable()
                .authorizeRequests()
                 .anyRequest().permitAll()
                         .and()

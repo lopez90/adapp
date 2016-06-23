@@ -16,8 +16,40 @@
 <head>
     <title>Adapp register</title>
 
+    <script src="${jQuery}"></script>
+
     <link href="${SemanticCSS}" rel="stylesheet" />
     <script src="${SemanticJS}"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            // send form by Ajax
+            $('.ui.form').on('submit', function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: '<c:url value="/"/>',
+                    type: "post",
+                    data: formToJSON(),
+                    dataType : "json",
+                    contentType: 'application/json; charset=utf-8',
+                    async: false,
+                    success: function(data) {
+                        location.replace("www.onet.pl")
+                    }
+                })
+            })
+        })
+        ;
+
+        // pack ui.form data to JSON format
+        function formToJSON() {
+            return JSON.stringify({
+                "firstName": $('.ui.form').form('get value', 'username'),
+                "lastName": $('.ui.form').form('get value', 'password'),
+            })
+        }
+    </script>
 </head>
 <body>
 <div class="ui grid">
@@ -40,33 +72,5 @@
     <div class="four wide column">
     </div>
 </div>
-<script>
-    $('.ui.form').on('submit', function(e){
-        e.preventDefault();
-        $.ajax({
-            url: '<c:url value="/"/>',
-            type: "post",
-            data: formToJSON(),
-            dataType : "json",
-            contentType: 'application/json; charset=utf-8',
-            async: false,
-            success : function(data){
-                if(data.message == "success") {
-                    location.replace("<c:url value="/"/>");
-                }
-            },
-            error : function(xhr, status){
-                console.log(status);
-            }
-        })
-    })
-
-    function formToJSON() {
-        return JSON.stringify({
-            "username": $('.ui.form').form('get value', 'username'),
-            "password": $('.ui.form').form('get value', 'password')
-        })
-    }
-</script>
 </body>
 </html>

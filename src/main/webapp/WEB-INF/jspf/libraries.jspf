@@ -1,3 +1,6 @@
+<!-- jQuery Library -->
+<spring:url value="/webjars/jquery/2.1.4/jquery.min.js" var="jQuery" />
+
 <!-- Semantic-UI CSS & JS -->
 <spring:url value="/webjars/Semantic-UI/2.1.8/semantic.min.css" var="SemanticCSS" />
 <spring:url value="/webjars/Semantic-UI/2.1.8/semantic.min.js" var="SemanticJS" />

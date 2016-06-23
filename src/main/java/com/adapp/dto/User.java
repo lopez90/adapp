@@ -1,53 +1,17 @@
 package com.adapp.dto;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
-
-
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by Dom on 22.06.2016.
  */
-
-
-public class User implements Serializable {
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (id != user.id) return false;
-        if (!username.equals(user.username)) return false;
-        return password.equals(user.password);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + username.hashCode();
-        result = 31 * result + password.hashCode();
-        return result;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+@Entity
+@Table
+@AttributeOverride(name = "id", column = @Column(name = "userId"))
+public class User extends BaseEntity {
 
     @Column(name = "username")
     private String username;
@@ -71,4 +35,22 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        return password != null ? password.equals(user.password) : user.password == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = username != null ? username.hashCode() : 0;
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        return result;
+    }
 }
