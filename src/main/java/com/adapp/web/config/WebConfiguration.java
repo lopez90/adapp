@@ -1,6 +1,5 @@
 package com.adapp.web.config;
 
-
 import com.adapp.dao.UserDAO;
 import com.adapp.dao.interf.IUserDAO;
 import com.adapp.service.UserServiceImpl;
@@ -25,7 +24,6 @@ import java.util.Locale;
 /**
  * Created by Dom on 20.06.2016.
  */
-
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.adapp")

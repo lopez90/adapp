@@ -35,6 +35,7 @@
                     contentType: 'application/json; charset=utf-8',
                     async: false,
                     success: function(data) {
+                        console.log(formToJSON());
                         location.replace("www.onet.pl")
                     }
                 })
@@ -45,8 +46,8 @@
         // pack ui.form data to JSON format
         function formToJSON() {
             return JSON.stringify({
-                "firstName": $('.ui.form').form('get value', 'username'),
-                "lastName": $('.ui.form').form('get value', 'password'),
+                "username": $('.ui.form').form('get value', 'username'),
+                "password": $('.ui.form').form('get value', 'password'),
             })
         }
     </script>

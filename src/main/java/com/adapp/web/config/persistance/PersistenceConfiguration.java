@@ -16,16 +16,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
 /**
  * Created by Dom on 22.06.2016.
  */
-
 @Configuration
 @EnableTransactionManagement
 @PropertySource({"classpath:persistance-mysql.properties"})
-@ComponentScan("com.adapp.web")
-
+@ComponentScan("com.adapp")
 public class PersistenceConfiguration {
 
     @Autowired
@@ -35,7 +32,7 @@ public class PersistenceConfiguration {
     public LocalSessionFactoryBean sessionFactory(){
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
-        sessionFactory.setPackagesToScan(new String []{"com.adapp.web.config.persistance"});
+        sessionFactory.setPackagesToScan(new String []{"com.adapp.dto"});
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
@@ -54,8 +51,8 @@ public class PersistenceConfiguration {
 
     @Bean
     @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
-        HibernateTransactionManager txManager = new HibernateTransactionManager();
+    public HibernateTransactionManager transactionManager(final SessionFactory sessionFactory){
+        final HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);
 
         return txManager;
