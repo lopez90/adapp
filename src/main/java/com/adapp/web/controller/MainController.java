@@ -30,7 +30,7 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody GenericResponse register(@RequestBody @Valid User user){
-        userService.saveUser(user);
+        userService.create(user);
 
         return new GenericResponse("Success");
     }

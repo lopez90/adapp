@@ -1,6 +1,6 @@
 package com.adapp.dao.abstr;
 
-import com.adapp.dao.interf.IOperations;
+import com.adapp.common.IOperations;
 import com.google.common.base.Preconditions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

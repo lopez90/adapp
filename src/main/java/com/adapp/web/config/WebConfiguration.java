@@ -1,9 +1,5 @@
 package com.adapp.web.config;
 
-import com.adapp.dao.UserDAO;
-import com.adapp.dao.interf.IUserDAO;
-import com.adapp.service.UserServiceImpl;
-import com.adapp.service.interf.IUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,13 +16,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.Locale;
 
-
 /**
  * Created by Dom on 20.06.2016.
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.adapp")
+@ComponentScan(basePackages = "com.adapp")
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -68,15 +63,4 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
     }
-
-    @Bean
-    public IUserService userService(){
-        return new UserServiceImpl();
-    }
-
-    @Bean
-    public IUserDAO userDAO(){
-        return new UserDAO();
-    }
-
 }

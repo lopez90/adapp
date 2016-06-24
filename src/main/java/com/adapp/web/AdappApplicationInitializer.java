@@ -12,7 +12,6 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 @Order(1)
 public class AdappApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{PersistenceConfiguration.class, AdappSecurityConfiguration.class};

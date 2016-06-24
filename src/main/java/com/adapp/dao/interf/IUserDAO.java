@@ -1,5 +1,6 @@
 package com.adapp.dao.interf;
 
+import com.adapp.common.IOperations;
 import com.adapp.dto.User;
 
 /**

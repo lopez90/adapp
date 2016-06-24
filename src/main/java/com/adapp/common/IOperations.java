@@ -1,4 +1,4 @@
-package com.adapp.dao.interf;
+package com.adapp.common;
 
 /**
  * Created by Dom on 23.06.2016.
