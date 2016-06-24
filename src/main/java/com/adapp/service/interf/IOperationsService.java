@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by Dom on 24.06.2016.
  */
-public interface IOperationsService<T extends AbstractHibernateDAO, E extends Serializable> {
+public interface IOperationsService< T extends Serializable> {
 
-     public void create(T dao, E dto);
+     public void create(T dao);
 }

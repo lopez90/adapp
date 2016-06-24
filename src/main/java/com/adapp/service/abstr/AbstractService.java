@@ -13,9 +13,10 @@ import java.io.Serializable;
 /**
  * Created by Dom on 24.06.2016.
  */
-public abstract class AbstractService<T extends AbstractHibernateDAO, E extends Serializable> implements IOperationsService<T,E> {
+public abstract class AbstractService<T extends AbstractHibernateDAO> implements IOperationsService<T> {
 
-    void public create(T dao, E dto){
+
+    void public create(T dto){
         dao.create(dto);
     }
 
