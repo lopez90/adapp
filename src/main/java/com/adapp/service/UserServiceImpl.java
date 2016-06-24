@@ -1,9 +1,7 @@
 package com.adapp.service;
 
-import com.adapp.dao.interf.IUserDAO;
-import com.adapp.dto.User;
-import com.adapp.service.interf.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.adapp.dao.UserDAO;
+import com.adapp.service.abstr.AbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,13 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends AbstractService<UserDAO>{
 
-    @Autowired
-    IUserDAO userDAO;
-
-    @Override
-    public void saveUser(User user) {
-        userDAO.create(user);
-    }
 }
