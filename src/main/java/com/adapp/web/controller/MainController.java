@@ -23,8 +23,13 @@ public class MainController {
     @Autowired
     IUserService userService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping
     public String getIndex(){
+        return "index";
+    }
+
+    @RequestMapping(value="/register", method = RequestMethod.GET)
+    public String getRegister(){
         return "register";
     }
 

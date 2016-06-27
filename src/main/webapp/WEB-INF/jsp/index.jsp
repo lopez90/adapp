@@ -12,17 +12,26 @@
 <script src="${jQuery}"></script>
 
 <html>
-
   <head>
     <title><spring:message code="Index.Message"/></title></head>
     <link href="${SemanticCSS}" rel="stylesheet" />
     <script src="${jQuery}"></script>
   <body>
-  <a href="?mylocale=en">English </a> | <a href="?mylocale=pl">Polish</a>
-  <h3> <spring:message code="Index.Message"/></h3>
-  <div class="ui steps">
-    <div class="step">
-      Shipping
+  <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item">Work</a>
+        <a class="item">Company</a>
+        <a class="item">Careers</a>
+        <div class="right item">
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
     </div>
   </div>
   </body>
