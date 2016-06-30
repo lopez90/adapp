@@ -1,20 +1,26 @@
 package com.adapp.dto;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Collection;
 
 /**
  * Created by Dom on 22.06.2016.
  */
+
 @Entity
 @Table
 @AttributeOverride(name = "id", column = @Column(name = "userId"))
+@NamedQueries({ @NamedQuery(name = "User_findByEmail",
+        query = "select OBJECT(u) from user u where u.email=:email") })
 public class User extends BaseEntity {
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"))
     private Collection<Role> roles;
-
     @Column(name = "username")
     private String username;
     @Column(name = "password")
@@ -25,6 +31,16 @@ public class User extends BaseEntity {
     boolean enabled;
     @Column(name = "tokenExpired")
     boolean tokenExpired;
+
+
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
 
     public String getUsername() {
         return username;

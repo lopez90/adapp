@@ -41,7 +41,9 @@ dependencies {
     compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '4.1.0.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-acl', version: '4.1.0.RELEASE'
 
-    compile group: 'com.google.guava', name: 'guava', version: 'r05'
+    compile group: 'com.google.guava', name: 'guava', version: '19.0'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
+
 
 
 }

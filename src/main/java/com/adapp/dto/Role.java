@@ -1,5 +1,7 @@
 package com.adapp.dto;
 
+import com.adapp.dao.interf.RoleDAO;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -25,6 +27,22 @@ public class Role extends BaseEntity {
     @Column(name = "description")
     private String description;
 
+    public Collection<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Collection<User> users) {
+        this.users = users;
+    }
+
+    public Collection<Privilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(Collection<Privilege> privileges) {
+        this.privileges = privileges;
+    }
+
     public String getName() {
         return name;
     }
@@ -48,6 +66,8 @@ public class Role extends BaseEntity {
 
         Role role = (Role) o;
 
+        if (users != null ? !users.equals(role.users) : role.users != null) return false;
+        if (privileges != null ? !privileges.equals(role.privileges) : role.privileges != null) return false;
         if (name != null ? !name.equals(role.name) : role.name != null) return false;
         return description != null ? description.equals(role.description) : role.description == null;
 
@@ -55,7 +75,9 @@ public class Role extends BaseEntity {
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = users != null ? users.hashCode() : 0;
+        result = 31 * result + (privileges != null ? privileges.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
