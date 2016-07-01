@@ -23,15 +23,13 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-orm', version: '4.2.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-context', version: '4.2.6.RELEASE'
 
-    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
-    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.11.Final'
-
-    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
-    compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.3.2.Final'
+    compile 'org.hibernate:hibernate-core:5.0.2.Final'
+    compile 'org.hibernate:hibernate-validator:5.2.2.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.0.3.Final'
 
 
     compile group: 'javassist', name: 'javassist', version: '3.12.1.GA'
-    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.2'
+    compile 'mysql:mysql-connector-java:5.1.36'
     compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.0.36'
 
     compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.1.0.RELEASE'
