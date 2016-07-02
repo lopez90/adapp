@@ -3,13 +3,7 @@ package com.adapp.dao;
 import com.adapp.dao.abstr.AbstractHibernateDAO;
 import com.adapp.dao.interf.IRoleDAO;
 import com.adapp.dto.Role;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transaction;
 
 /**
  * Created by Andrzej Olkiewicz on 2016-07-01.

@@ -34,6 +34,8 @@
       </div>
     </div>
   </div>
+
+  <h1>${user.getUsername()}</h1>
   </body>
   </html>
   </body>

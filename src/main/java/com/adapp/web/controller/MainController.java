@@ -1,11 +1,13 @@
 package com.adapp.web.controller;
 
+import com.adapp.dao.interf.IUserDAO;
 import com.adapp.dto.User;
 import com.adapp.service.interf.IUserService;
 import com.adapp.util.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +25,16 @@ public class MainController {
     @Autowired
     IUserService userService;
 
+    @Autowired
+    IUserDAO UserDao;
+
     @RequestMapping
-    public String getIndex(){
+    public String getIndex(Model model){
+        User user = UserDao.findByMail("aolkiewicz@gmail.com");
+
+        if(user != null)
+            model.addAttribute("user", user);
+
         return "index";
     }
 

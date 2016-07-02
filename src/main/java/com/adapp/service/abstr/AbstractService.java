@@ -1,8 +1,8 @@
 package com.adapp.service.abstr;
 
 import com.adapp.common.IOperations;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 

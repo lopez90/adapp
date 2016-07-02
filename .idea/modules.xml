@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/adapp.iml" filepath="$PROJECT_DIR$/.idea/modules/adapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adapp_main.iml" filepath="$PROJECT_DIR$/.idea/modules/adapp_main.iml" group="adapp" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adapp_test.iml" filepath="$PROJECT_DIR$/.idea/modules/adapp_test.iml" group="adapp" />
     </modules>
   </component>
 </project>

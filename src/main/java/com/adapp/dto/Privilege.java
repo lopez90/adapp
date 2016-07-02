@@ -1,8 +1,6 @@
 package com.adapp.dto;
 
 import javax.persistence.*;
-import java.util.HashSet;
-
 import java.util.Set;
 
 /**
@@ -13,10 +11,12 @@ import java.util.Set;
 @AttributeOverride(name = "id", column = @Column(name = "privilegeId"))
 public class Privilege extends BaseEntity {
 
-    @ManyToMany(mappedBy = "privileges")
-    private Set<Role> roles = new HashSet<Role>();
-
-    @Column(name = "name",unique = true)
+    @Column(name = "name", unique = true)
     private String name;
 
+    @Column(name = "description")
+    private String description;
+
+    @ManyToMany(mappedBy = "privileges")
+    private Set<Role> roles;
 }
