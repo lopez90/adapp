@@ -30,7 +30,7 @@ public class MainController {
 
     @RequestMapping
     public String getIndex(Model model){
-        User user = UserDao.findByMail("aolkiewicz@gmail.com");
+        User user = UserDao.findByMailWithCriteria("aolkiewicz@gmail.com");
 
         if(user != null)
             model.addAttribute("user", user);

@@ -2,8 +2,11 @@ package com.adapp.dao.abstr;
 
 import com.adapp.common.IOperations;
 import com.google.common.base.Preconditions;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.internal.CriteriaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
@@ -23,6 +26,9 @@ public abstract class AbstractHibernateDAO<T extends Serializable> implements IO
 
     protected final void setClazz(final Class<T> clazzToSet) {
         clazz = Preconditions.checkNotNull(clazzToSet);
+    }
+    protected final Class<T> getClazz(){
+        return this.clazz;
     }
 
     @Override
@@ -59,6 +65,18 @@ public abstract class AbstractHibernateDAO<T extends Serializable> implements IO
         final T entity = findOne(entityId);
         Preconditions.checkState(entity != null);
         delete(entity);
+    }
+
+    // metoda templatka, generyczna
+    // ma wyszukac jeden wynik na podstawie kryteriow które dostanie w liscie List<Criterion>
+    public T findOneByCriteria(List<Criterion> criterions){
+        Criteria criteria = getCurrentSession().createCriteria(getClazz()); // tutaj tworzysz z session criteria, jako parametr metoda getClazz() ktora zwraca obiekt klasy(DTO) np. User.class, Role.class
+
+        // pakujesz wszystkie kryteria...
+        for(Criterion criterion: criterions)
+            criteria.add(criterion);
+
+        return (T) criteria.uniqueResult(); // wywolujesz i zwracasz
     }
 
     protected final Session getCurrentSession() {
