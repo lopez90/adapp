@@ -79,6 +79,15 @@ public abstract class AbstractHibernateDAO<T extends Serializable> implements IO
         return (T) criteria.uniqueResult(); // wywolujesz i zwracasz
     }
 
+    public List<T> findManyByCriteria(List<Criterion> criterions){
+        Criteria criteria = getCurrentSession().createCriteria(getClazz());
+
+        for(Criterion criterion: criterions)
+            criteria.add(criterion);
+
+        return (List<T>) criteria.list();
+    }
+
     protected final Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }

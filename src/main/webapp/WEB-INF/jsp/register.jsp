@@ -23,7 +23,6 @@
 
     <script>
         $(document).ready(function() {
-
             // send form by Ajax
             $('.ui.form').on('submit', function(e){
                 e.preventDefault();
@@ -36,17 +35,17 @@
                     async: false,
                     success: function(data) {
                         console.log(formToJSON());
-                        location.replace("www.onet.pl")
+                        location.replace("/")
                     }
                 })
             })
-        })
-        ;
+        });
 
         // pack ui.form data to JSON format
         function formToJSON() {
             return JSON.stringify({
                 "username": $('.ui.form').form('get value', 'username'),
+                "email": $('.ui.form').form('get value', 'email'),
                 "password": $('.ui.form').form('get value', 'password'),
             })
         }
@@ -62,6 +61,10 @@
             <div class="field">
                 <label>Username</label>
                 <input name="username" placeholder="Username" type="text">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input name="email" placeholder="Email" type="text">
             </div>
             <div class="field">
                 <label>Password</label>

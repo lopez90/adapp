@@ -38,16 +38,4 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping(value="/register", method = RequestMethod.GET)
-    public String getRegister(){
-        return "register";
-    }
-
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody GenericResponse register(@RequestBody @Valid User user){
-        userService.create(user);
-
-        return new GenericResponse("Success");
-    }
-
 }
