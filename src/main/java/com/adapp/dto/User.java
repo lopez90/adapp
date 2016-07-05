@@ -1,6 +1,11 @@
 package com.adapp.dto;
 
+import org.springframework.security.core.CredentialsContainer;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -31,6 +36,10 @@ public class User extends BaseEntity {
 
     @Column(name = "tokenExpired")
     boolean tokenExpired;
+
+    public User(){
+        this.enabled=false;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"))
@@ -110,4 +119,5 @@ public class User extends BaseEntity {
         result = 31 * result + (roles != null ? roles.hashCode() : 0);
         return result;
     }
+
 }

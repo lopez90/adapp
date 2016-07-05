@@ -3,15 +3,12 @@ package com.adapp.dao;
 import com.adapp.dao.abstr.AbstractHibernateDAO;
 import com.adapp.dao.interf.IUserDAO;
 import com.adapp.dto.User;
-import org.hibernate.Criteria;
+import com.adapp.dto.VerificationToken;
 import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.internal.CriteriaImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,4 +40,6 @@ public class UserDAO extends AbstractHibernateDAO<User> implements IUserDAO {
 
         return findOneByCriteria(criterionList); // zwracasz na podstawie metody generycznej z AbstractHbnDAO
     }
+
+
 }

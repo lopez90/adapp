@@ -8,7 +8,7 @@ import com.adapp.dto.User;
  */
 public interface IUserDAO extends IOperations<User> {
 
-    public User findByMail(String email);
-
+    User findByMail(String email);
     User findByMailWithCriteria(String email);
+
 }

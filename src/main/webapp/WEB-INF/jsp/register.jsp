@@ -29,75 +29,58 @@
                     .form({
                         on: 'blur',
                         fields: {
-                            username: {
-                                identifier: 'username',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Please enter a username'
-                                    }
-                                ]
-                            },
-                            email: {
-                                identifier: 'email',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Please enter a email'
-                                    },
-                                    {
-                                        type   : 'minLength[6]',
-                                        prompt : 'Your password must be at least {ruleValue} characters'
-                                    },
-                                    {
-                                        type   : 'email',
-                                        prompt : 'Incorrect email address'
-                                    }
-                                ]
-                            },
-                            password: {
-                                identifier: 'password',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Please enter a password'
-                                    },
-                                    {
-                                        type   : 'minLength[6]',
-                                        prompt : 'Your password must be at least {ruleValue} characters'
-                                    },
-                                    {
-                                        type   : 'minLength[6]',
-                                        prompt : 'Your password must be at least {ruleValue} characters'
-                                    }
-                                ]
-                            },
-                            confirmPassword: {
-                                identifier: 'confirmPassword',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Please enter a password'
-                                    },
-                                    {
-                                        type   : 'match[password]',
-                                        prompt : 'Your passwords must be match'
-                                    },
-                                    {
-                                        type   : 'minLength[6]',
-                                        prompt : 'Your password must be at least {ruleValue} characters'
-                                    },
-                                    {
-                                        type   : 'regExp[/[0-9]/]',
-                                        prompt : 'Your password must have number characters'
-                                    },
-                                    {
-                                        type   : 'regExp[/[A-Z]/]',
-                                        prompt : 'Your password must have big letter characters'
-                                    }
-                                ]
-                            }
-                        }
+                        username: {
+                            identifier  : 'username',
+                            rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter a gender'
+                                },
+                                {
+                                    type   : 'regExp[/^[a-z0-9_-]{3,16}$/]',
+                                    prompt : 'Username is incorrect'
+                                }
+                            ]
+                        },
+                        email: {
+                            identifier  : 'email',
+                            rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your email'
+                                },
+                                {
+                                    type   : 'email',
+                                    prompt : 'Email is incorrect'
+                                }
+                            ]
+                        },
+                        password: {
+                            identifier  : 'password',
+                            rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your name'
+                                },
+                                {
+                                    type   : 'minLength[6]',
+                                    prompt : 'Password must have 6 sings'
+                                }
+                            ]
+                        },
+                        confirmPassword: {
+                            identifier  : 'confirmPassword',
+                            rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your name'
+                                },
+                                {
+                                    type   : 'match[password]',
+                                    prompt : 'Passwords must be the same'
+                                }
+                            ]
+                        }}
                     })
             ;
 

@@ -1,5 +1,7 @@
 package com.adapp.dto;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,7 +11,7 @@ import java.util.Set;
 @Entity
 @Table
 @AttributeOverride(name = "id", column = @Column(name = "roleId"))
-public class Role extends BaseEntity {
+public class Role extends BaseEntity implements GrantedAuthority {
 
     @Column(name = "name", unique = true)
     private String name;
@@ -23,4 +25,9 @@ public class Role extends BaseEntity {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "roles_privileges", joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"), inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "privilegeId"))
     private Set<Privilege> privileges;
+
+    @Override
+    public String getAuthority() {
+        return name;
+    }
 }
