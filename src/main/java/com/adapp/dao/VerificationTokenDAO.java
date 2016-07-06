@@ -7,6 +7,8 @@ import com.adapp.dto.VerificationToken;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +16,11 @@ import java.util.List;
 /**
  * Created by Dom on 05.07.2016.
  */
-
+@Repository
+@Transactional
 public class VerificationTokenDAO extends AbstractHibernateDAO<VerificationToken> implements IVerificationTokenDAO {
+
+
 
     public VerificationTokenDAO(){
         super();
@@ -29,4 +34,5 @@ public class VerificationTokenDAO extends AbstractHibernateDAO<VerificationToken
 
         return findOneByCriteria(criterionList);
     }
+
 }

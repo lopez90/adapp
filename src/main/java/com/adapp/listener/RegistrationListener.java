@@ -1,6 +1,7 @@
 package com.adapp.listener;
 
 import com.adapp.dto.User;
+import com.adapp.service.interf.ITokenService;
 import com.adapp.service.interf.IUserService;
 import com.adapp.web.controller.event.OnRegistrationCompleteEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,12 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     @Autowired
     private IUserService service;
     @Autowired
+    private ITokenService tokenService;
+    @Autowired
     private MessageSource messages;
     @Autowired
     private JavaMailSender mailSender;
+
 
     @Override
     public void onApplicationEvent(OnRegistrationCompleteEvent event) {
@@ -32,7 +36,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     private void confirmRegistration(OnRegistrationCompleteEvent event) {
         User user = event.getUser();
         String token = UUID.randomUUID().toString();
-        service.createVerificationToken(user, token);
+        tokenService.createVerificationToken(user, token);
 
         String recipientAddress = user.getEmail();
         String subject = "Registration Confirmation";

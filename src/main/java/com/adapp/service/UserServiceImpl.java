@@ -3,6 +3,7 @@ package com.adapp.service;
 import com.adapp.common.IOperations;
 import com.adapp.dao.VerificationTokenDAO;
 import com.adapp.dao.interf.IUserDAO;
+import com.adapp.dao.interf.IVerificationTokenDAO;
 import com.adapp.dto.User;
 import com.adapp.dto.VerificationToken;
 import com.adapp.exceptions.UserAlreadyExistsException;
@@ -24,16 +25,13 @@ public class UserServiceImpl extends AbstractService<User> implements IUserServi
     @Autowired
     private IUserDAO dao;
 
-    @Autowired
-    private VerificationTokenDAO tokenDAO;
-
     @Override
     protected IOperations<User> getDao() {
         return dao;
     }
 
     @Override
-    public void register(User user) {
+    public User register(User user) {
         try {
             if (dao.findByMail(user.getEmail()) != null) {
                 throw new UserAlreadyExistsException("User already exists in Database!");
@@ -43,20 +41,8 @@ public class UserServiceImpl extends AbstractService<User> implements IUserServi
         } catch (UserAlreadyExistsException e) {
             e.getMessage();
         }
-
+        return user;
     }
-
-    @Override
-    public void createVerificationToken(User user, String token) {
-        VerificationToken myToken = new VerificationToken(token, user);
-        tokenDAO.create(myToken);
-    }
-
-    @Override
-    public VerificationToken getVerificationToken(String token) {
-        return tokenDAO.findByTokenWithCriteria(token);
-    }
-
 
     public User findUserByEmail(String email){
         return dao.findByMail(email);
