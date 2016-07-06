@@ -96,7 +96,6 @@
                     async: false,
                     success: function(data) {
                         console.log(formToJSON());
-                        location.replace("/")
                     }
                 })
             })

@@ -40,15 +40,19 @@ public class UserController {
     ApplicationEventPublisher eventPublisher;
 
     @RequestMapping(value="/add", method = RequestMethod.GET)
-    public String getRegisterForm(){
-        return "register";
+    public ModelAndView getRegisterForm(){
+        return new ModelAndView("register");
     }
 
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String registerUserAccount(@RequestBody @Valid User accountDto) {
+    public void registerUserAccount(@ModelAttribute("user") @Valid User accountDto,
+                                            BindingResult result, WebRequest request, Errors errors) {
         User registered = userService.register(accountDto);
-        return  "redirect:/user/successRegister";
+        String appUrl = request.getContextPath();
+        eventPublisher.publishEvent(new OnRegistrationCompleteEvent
+                (registered, request.getLocale(), appUrl));
+
     }
 
     @RequestMapping(value="/successRegister", method = RequestMethod.GET)
