@@ -19,7 +19,7 @@ import java.util.UUID;
 @Component
 public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent> {
     @Autowired
-    private IUserService service;
+    private IUserService userService;
     @Autowired
     private ITokenService tokenService;
     @Autowired
@@ -30,22 +30,31 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
 
     @Override
     public void onApplicationEvent(OnRegistrationCompleteEvent event) {
-        this.confirmRegistration(event);
+        this.confirmationEmail(event);
     }
 
-    private void confirmRegistration(OnRegistrationCompleteEvent event) {
+    private void confirmationEmail(OnRegistrationCompleteEvent event){
         User user = event.getUser();
         String token = UUID.randomUUID().toString();
         tokenService.createVerificationToken(user, token);
 
-        String recipientAddress = user.getEmail();
-        String subject = "Registration Confirmation";
-        String confirmationUrl = event.getAppUrl() + "/regitrationConfirm.html?token=" + token;
-        String message = messages.getMessage("message.regSucc", null, event.getLocale());
-        SimpleMailMessage email = new SimpleMailMessage();
-        email.setTo(recipientAddress);
-        email.setSubject(subject);
-        email.setText(message + " rn" + "http://localhost:8080" + confirmationUrl);
+        SimpleMailMessage email = buildEmailMessage(event, user, token);
+
         mailSender.send(email);
+    }
+
+    private SimpleMailMessage buildEmailMessage(OnRegistrationCompleteEvent event, User user, String token) {
+        String sentToAddress = user.getEmail();
+        String subject = "subject";
+        String confirmURL = "confirmurl" + token;
+        String emailMessage = "email message";
+
+
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setTo(sentToAddress);
+        simpleMailMessage.setSubject(subject);
+        simpleMailMessage.setText(emailMessage);
+        simpleMailMessage.setFrom("przykladowyappadd@gmail.com");
+        return simpleMailMessage;
     }
 }

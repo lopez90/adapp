@@ -7,11 +7,11 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
-
 /**
  * Created by Dom on 05.07.2016.
  */
 @Entity
+@Table
 @AttributeOverride(name="id", column= @Column(name="idToken"))
 public class VerificationToken extends BaseEntity {
     private final static int EXPIRATION =  60 * 24;
@@ -25,8 +25,8 @@ public class VerificationToken extends BaseEntity {
     @Column(name="verified")
     private boolean verified;
 
-    @OneToOne(targetEntity = User.class,fetch=FetchType.EAGER)
-    @JoinColumn(nullable=false,name="userId")
+    @OneToOne(targetEntity = User.class, fetch=FetchType.EAGER)
+    @JoinColumn(nullable=false, name="userId")
     private User user;
 
     public VerificationToken(){

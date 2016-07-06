@@ -95,6 +95,8 @@
                     contentType: 'application/json; charset=utf-8',
                     async: false,
                     success: function(data) {
+                        if(data.message == "success")
+                                location.replace("/");
                         console.log(formToJSON());
                     }
                 })

@@ -1,14 +1,14 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Gradle : adapp : adapp-1.0-SNAPSHOT.war (exploded)">
-    <output-path>$PROJECT_DIR$/out/artifacts/adapp/exploded/adapp-1.0-SNAPSHOT.war</output-path>
+  <artifact type="war" name="Gradle : adapp:adapp : adapp-1.0-SNAPSHOT.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/adapp</output-path>
     <properties id="gradle-properties">
       <options external-project-path="$PROJECT_DIR$" />
     </properties>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="adapp_main/web/Web Gradle : adapp-1.0-SNAPSHOT.war" />
+    <root id="archive" name="adapp-1.0-SNAPSHOT.war">
+      <element id="javaee-facet-resources" facet="adapp/web/Web Gradle : adapp-1.0-SNAPSHOT.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="adapp_main" />
+          <element id="module-output" name="adapp" />
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
@@ -33,7 +33,6 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.1.0.RELEASE" />
           <element id="library" level="project" name="Gradle: com.google.guava:guava:19.0" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.21" />
-          <element id="library" level="project" name="Gradle: javax.mail:mail:1.4" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.2.6.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.6.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.2.6.RELEASE" />
@@ -56,11 +55,12 @@
           <element id="library" level="project" name="Gradle: org.springframework.ldap:spring-ldap-core:2.0.2.RELEASE" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
-          <element id="library" level="project" name="Gradle: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.0.3.Final" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.jboss:jandex:2.0.0.CR1" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4/1aa1579ae5ecd41920c4f355b0a9ef40b68315dd/mail-1.4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

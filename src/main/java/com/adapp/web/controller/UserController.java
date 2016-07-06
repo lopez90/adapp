@@ -46,13 +46,14 @@ public class UserController {
 
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void registerUserAccount(@ModelAttribute("user") @Valid User accountDto,
+    public @ResponseBody GenericResponse registerUserAccount(@RequestBody @Valid User accountDto,
                                             BindingResult result, WebRequest request, Errors errors) {
         User registered = userService.register(accountDto);
         String appUrl = request.getContextPath();
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent
                 (registered, request.getLocale(), appUrl));
 
+        return new GenericResponse("success");
     }
 
     @RequestMapping(value="/successRegister", method = RequestMethod.GET)
