@@ -96,8 +96,8 @@
                     async: false,
                     success: function(data) {
                         if(data.message == "success")
-                                location.replace("/");
-                        console.log(formToJSON());
+                            location.replace("www.onet.pl")
+                            console.log(formToJSON());
                     }
                 })
             })
@@ -108,7 +108,7 @@
             return JSON.stringify({
                 "username": $('.ui.form').form('get value', 'username'),
                 "email": $('.ui.form').form('get value', 'email'),
-                "password": $('.ui.form').form('get value', 'password'),
+                "password": $('.ui.form').form('get value', 'password')
             })
         }
     </script>

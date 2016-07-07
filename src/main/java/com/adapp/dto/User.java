@@ -41,6 +41,12 @@ public class User extends BaseEntity {
         this.enabled=false;
     }
 
+    public User(String username, String email, String password){
+        this.username=username;
+        this.email=email;
+        this.password=password;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "roleId"))
     private Set<Role> roles;

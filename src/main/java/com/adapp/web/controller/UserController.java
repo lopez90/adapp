@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.Calendar;
@@ -40,19 +39,14 @@ public class UserController {
     ApplicationEventPublisher eventPublisher;
 
     @RequestMapping(value="/add", method = RequestMethod.GET)
-    public ModelAndView getRegisterForm(){
-        return new ModelAndView("register");
+    public String getRegisterForm(){
+        return "register";
     }
 
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody GenericResponse registerUserAccount(@RequestBody @Valid User accountDto,
-                                            BindingResult result, WebRequest request, Errors errors) {
-        User registered = userService.register(accountDto);
-        String appUrl = request.getContextPath();
-        eventPublisher.publishEvent(new OnRegistrationCompleteEvent
-                (registered, request.getLocale(), appUrl));
-
+    public @ResponseBody GenericResponse registerUserAccount(@RequestBody @Valid User accountDto) {
+        userService.register(accountDto);
         return new GenericResponse("success");
     }
 
