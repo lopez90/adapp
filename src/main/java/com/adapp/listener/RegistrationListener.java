@@ -30,7 +30,10 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
 
     @Override
     public void onApplicationEvent(OnRegistrationCompleteEvent event) {
-        this.confirmationEmail(event);
+        if(!event.isInvoked())
+            this.confirmationEmail(event);
+
+        event.setInvoked(true);
     }
 
     private void confirmationEmail(OnRegistrationCompleteEvent event){
